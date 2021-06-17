@@ -1,0 +1,38 @@
+@use './colour' as colour;
+@use './function' as function;
+@use './theme-opacity-map' as opacity;
+@use './mixin' as mixin;
+
+@function set-theme(
+  $background: map-get(colour.$black, 300),
+  $background-alt: map-get(colour.$black, 400),
+  $font: map-get(colour.$white, 300),
+  $accent-one: map-get(colour.$orange, 200),
+  $accent-two: map-get(colour.$blue, 200),
+  $accent-three: map-get(colour.$green, 200)
+) {
+  $opacities: null;
+
+  @if (lightness($background) > 50) {
+    $opacities: opacity.$opacities-light;
+  } @else {
+    $opacities: opacity.$opacities-dark;
+  }
+
+  @return (
+    opacities: $opacities,
+    colours: (
+      background: $background,
+      background-alt: $background-alt,
+      font: $font,
+      accent-one: $accent-one,
+      accent-two: $accent-two,
+      accent-three: $accent-three,
+    )
+  );
+}
+
+@mixin theme($theme) {
+  background: function.theme-colour($theme, background);
+  color: function.theme-colour($theme, font, font);
+}

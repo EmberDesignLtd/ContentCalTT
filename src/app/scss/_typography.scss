@@ -1,0 +1,38 @@
+$font-size: (
+  'xs': 12px,
+  's': 14px,
+  'm': 16px,
+  'l': 18px,
+  'xl': 22px,
+);
+
+$montserrat: 'Montserrat', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.xs-text {
+  font-size: map-get($font-size, xs);
+}
+
+.s-text {
+  font-size: map-get($font-size, s);
+}
+
+.m-text {
+  font-size: map-get($font-size, m);
+}
+
+.l-text {
+  font-size: map-get($font-size, l);
+}
+
+.xl-text {
+  font-size: map-get($font-size, xl);
+}
