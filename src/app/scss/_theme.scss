@@ -34,5 +34,8 @@
 
 @mixin theme($theme) {
   background: function.theme-colour($theme, background);
-  color: function.theme-colour($theme, font, font);
+
+  * {
+    color: function.theme-colour($theme, font, font);
+  }
 }
