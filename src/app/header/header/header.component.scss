@@ -1,0 +1,22 @@
+@use '../../scss/base';
+
+header {
+  @include base.flex-center();
+
+  padding: map-get(base.$spacing, m);
+}
+
+.content-cal {
+  height: 30px;
+  vertical-align: middle;
+}
+
+.content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.theme-toggle {
+  margin-left: auto;
+}

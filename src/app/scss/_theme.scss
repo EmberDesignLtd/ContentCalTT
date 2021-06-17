@@ -32,10 +32,15 @@
   );
 }
 
+@import '../../app/header/header/header.theme';
+
 @mixin theme($theme) {
   background: function.theme-colour($theme, background);
 
   * {
     color: function.theme-colour($theme, font, font);
+    fill: function.theme-colour($theme, font, font);
   }
+
+  @include header-theme($theme);
 }

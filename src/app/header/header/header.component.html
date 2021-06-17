@@ -1,1 +1,8 @@
-<p>header works!</p>
+<header>
+  <div class="content">
+    <img alt class="content-cal" src="/assets/ccal.svg" />
+    <button (click)="toggleTheme()" class="theme-toggle">
+      <app-svg-icon [iconId]="EIcon.THEME_SWITCH"></app-svg-icon>
+    </button>
+  </div>
+</header>
