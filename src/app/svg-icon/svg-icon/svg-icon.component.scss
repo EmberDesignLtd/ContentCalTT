@@ -1,0 +1,29 @@
+svg {
+  vertical-align: middle;
+}
+
+use {
+  color: inherit;
+}
+
+.small {
+  color: inherit;
+  height: 18px;
+  width: 18px;
+}
+
+.medium {
+  color: inherit;
+  height: 24px;
+  width: 24px;
+}
+
+.large {
+  color: inherit;
+  height: 32px;
+  width: 32px;
+}
+
+.flipped {
+  transform: scaleX(-1);
+}
