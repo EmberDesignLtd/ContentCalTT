@@ -12,6 +12,8 @@ button {
   background-color: unset;
   border: unset;
   cursor: pointer;
+  white-space: nowrap;
+  white-space: pre;
 
   &:disabled {
     cursor: not-allowed;
