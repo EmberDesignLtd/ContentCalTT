@@ -57,9 +57,11 @@ export class IdeasService {
       (element) =>
         element.title.toLowerCase().includes(_searchValue) ||
         element.description.toLowerCase().includes(_searchValue) ||
-        element.tags.some((element) =>
-          element.label.toLowerCase().includes(_searchValue)
-        )
+        element.tags.some((element) => {
+          return (
+            element.label.toLowerCase().includes(_searchValue) && element.value
+          );
+        })
     );
     this.updateState(stateToFilter);
   }

@@ -24,15 +24,15 @@ fdescribe('IdeasService', () => {
     });
     it('sort the data structure by title and set the first item to be Idea four', () => {
       service.sortBy(IdeaKey.TITLE);
-      const expectedTitle = 'idea four';
+      const expectedTitle = 'a idea';
       service.store$.subscribe((data) => {
         expect(data[0].title.toLowerCase()).toBe(expectedTitle.toLowerCase());
       });
     });
-    it('sort the data structure by title and set the first item to be Idea two', () => {
+    it('sort the data structure by title and set the first item to be Idea', () => {
       service.sortBy(IdeaKey.TITLE);
       service.sortBy(IdeaKey.TITLE);
-      const expectedTitle = 'idea two';
+      const expectedTitle = 'idea';
       service.store$.subscribe((data) => {
         expect(data[0].title.toLowerCase()).toBe(expectedTitle.toLowerCase());
       });
@@ -43,14 +43,14 @@ fdescribe('IdeasService', () => {
     it('filter the data agaisnt the searchValue provided', () => {
       service.filterData('Idea one');
       service.store$.subscribe((data) => {
-        expect(data.length).toBe(1);
+        expect(data.length).toBe(0);
       });
     });
     it('return the full list after a searchValue has been cleared', () => {
       service.filterData('Idea one');
       service.filterData('');
       service.store$.subscribe((data) => {
-        expect(data.length).toBe(4);
+        expect(data.length).toBe(16);
       });
     });
   });
@@ -80,7 +80,7 @@ fdescribe('IdeasService', () => {
       };
       service.addNewEntry(newIdea);
       service.store$.subscribe((data) => {
-        expect(data[4]).toEqual(newIdea);
+        expect(data[16]).toEqual(newIdea);
       });
     });
   });
@@ -89,7 +89,7 @@ fdescribe('IdeasService', () => {
     it('remove the relevant entry based on the index', () => {
       service.removeIdea(2);
       service.store$.subscribe((data) => {
-        expect(data.length).toBe(3);
+        expect(data.length).toBe(15);
       });
     });
   });
