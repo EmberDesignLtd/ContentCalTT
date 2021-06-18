@@ -58,6 +58,12 @@ export class IdeasService {
     this.updateState(stateToFilter);
   }
 
+  addNewEntry(ideaEntry: Idea): void {
+    const newState = [...this.store_$.value, ideaEntry];
+    this.unfilteredState = [...newState];
+    this.updateState(newState);
+  }
+
   private updateState(state: any): void {
     this.store_$.next([...state]);
   }

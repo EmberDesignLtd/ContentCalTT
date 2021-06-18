@@ -1,0 +1,11 @@
+<form (ngSubmit)="submit()" [formGroup]="ideaForm">
+  <label for="title">Name:</label>
+  <input formControlName="title" id="title" type="text" />
+
+  <label for="description">Description:</label>
+  <input formControlName="description" id="description" type="password" />
+
+  <!-- TODO(Munro): Add tags -->
+
+  <button [disabled]="!ideaForm.valid" type="submit">Submit/Update</button>
+</form>

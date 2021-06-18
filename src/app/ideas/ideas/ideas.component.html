@@ -4,7 +4,10 @@
   </div>
 </ng-container>
 
+<button (click)="addNewEntry()"></button>
 <button (click)="sortBy(EIdeaKey.DATE)">Sort 1</button>
 <button (click)="sortBy(EIdeaKey.TITLE)">Sort 2</button>
 
 <input [formControl]="searchTerm" #searchBar type="text" />
+
+<app-update-or-new-idea></app-update-or-new-idea>
