@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Renderer2 } from '@angular/core';
 import { Icon } from './../../svg-icon/svg-icon/svg-icon.component';
 
 enum Theme {
@@ -10,6 +10,7 @@ enum Theme {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   EIcon = Icon;
