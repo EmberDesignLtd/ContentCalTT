@@ -7,5 +7,11 @@
     &[secondary-button] {
       border: 1px solid function.theme-colour($theme, accent-two, button);
     }
+
+    &[tertiary-button] {
+      &:hover {
+        background: function.theme-colour($theme, accent-two, background-fade);
+      }
+    }
   }
 }
