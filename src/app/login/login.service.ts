@@ -6,5 +6,5 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoginService {
   // Given more time I'd implement a more robust login service with expiration tokens/OAuth as a third party example
-  loggedIn = new BehaviorSubject(true);
+  loggedIn = new BehaviorSubject(false);
 }
