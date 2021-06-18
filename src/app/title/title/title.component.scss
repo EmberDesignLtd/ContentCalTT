@@ -13,11 +13,19 @@
     font-size: map-get(base.$font-size, l);
   }
 
+  &[xl-title] > h1 {
+    font-size: map-get(base.$font-size, xl);
+  }
+
   &[small-spacing] > h1 {
     margin-bottom: map-get(base.$spacing, s);
   }
 
   &[medium-spacing] > h1 {
     margin-bottom: map-get(base.$spacing, m);
+  }
+
+  &[large-spacing] > h1 {
+    margin-bottom: map-get(base.$spacing, l);
   }
 }
