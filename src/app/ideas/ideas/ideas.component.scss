@@ -64,12 +64,6 @@ button.idea {
   margin-right: map-get(base.$spacing, s);
 }
 
-app-update-or-new-idea {
-  left: 18px;
-  position: absolute;
-  top: 42px;
-}
-
 button.idea.animate-card-in {
   opacity: 1;
   transition: opacity 2s;

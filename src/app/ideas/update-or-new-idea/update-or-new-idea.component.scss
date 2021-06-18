@@ -5,6 +5,15 @@
   width: 98%;
 }
 
+.content {
+  left: 51%;
+  max-width: base.$max-width;
+  position: fixed;
+  top: 117px;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
 .background {
   height: calc(100vh - 67px);
   left: 0;

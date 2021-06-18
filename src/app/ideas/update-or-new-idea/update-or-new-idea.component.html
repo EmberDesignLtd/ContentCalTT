@@ -1,38 +1,75 @@
 <div class="background"></div>
-<app-title class="header-title" large-spacing xl-title>Idea Board</app-title>
-<app-card>
-  <form (ngSubmit)="submit()" [formGroup]="ideaForm">
-    <label for="title">Name</label>
-    <input formControlName="title" id="title" type="text" />
+<div class="content">
+  <app-title class="header-title" large-spacing xl-title>Idea Board</app-title>
+  <app-card>
+    <form (ngSubmit)="submit()" [formGroup]="ideaForm">
+      <label for="title">Name</label>
+      <input formControlName="title" id="title" type="text" />
 
-    <label for="description">Description</label>
-    <textarea class="description-input"
-              cols="30"
-              formControlName="description"
-              id="description"
-              rows="4">
-    </textarea>
+      <label for="description">Description</label>
+      <textarea class="description-input"
+                cols="30"
+                formControlName="description"
+                id="description"
+                rows="4">
+      </textarea>
 
-    <div class="tags">
-      <div *ngFor="let control of tags; let i = index"
-           class="tag"
-           formArrayName="tags">
-        <input (click)="updateTagValue(i)"
-               [checked]="control.value.value"
-               [formGroupName]="i"
-               [name]="control.value.label"
-               [value]="control.value.label"
-               type="checkbox" />
-        <label (click)="updateTagValue(i)"
-               [for]="control.value.label"
-               class="tag-label">
-          <button type="button">{{control.value.label}}</button>
-        </label>
+      <div class="tags">
+        <div *ngFor="let control of tags; let i = index"
+             class="tag"
+             formArrayName="tags">
+          <input (click)="updateTagValue(i)"
+                 [checked]="control.value.value"
+                 [formGroupName]="i"
+                 [name]="control.value.label"
+                 [value]="control.value.label"
+                 type="checkbox" />
+          <label (click)="updateTagValue(i)"
+                 [for]="control.value.label"
+                 class="tag-label">
+            <button type="button">{{control.value.label}}</button>
+          </label>
+        </div>
       </div>
-    </div>
 
+      <div class="buttons">
+        <button (click)="openDeleteModal()"
+                *ngIf="updating"
+                app-button
+                class="delete-button"
+                secondary-button
+                type="button">
+          Delete
+        </button>
+        <button (click)="closeModal()"
+                app-button
+                class="cancel-button"
+                secondary-button
+                type="reset">
+          Cancel
+        </button>
+        <button [disabled]="!ideaForm.valid"
+                app-button
+                primary-button
+                type="submit">
+          {{updating ? 'Update' : 'Submit'}}
+        </button>
+      </div>
+    </form>
+  </app-card>
+
+  <div *ngIf="toggleDeleteModal" class="background-delete"></div>
+  <app-card *ngIf="toggleDeleteModal" class="confirm-delete">
+    <p>Are you sure you want to delete this idea?</p>
     <div class="buttons">
-      <button (click)="openDeleteModal()"
+      <button (click)="closeDeleteModal()"
+              app-button
+              class="cancel-button"
+              secondary-button
+              type="reset">
+        Cancel
+      </button>
+      <button (click)="removeIdea()"
               *ngIf="updating"
               app-button
               class="delete-button"
@@ -40,41 +77,6 @@
               type="button">
         Delete
       </button>
-      <button (click)="closeModal()"
-              app-button
-              class="cancel-button"
-              secondary-button
-              type="reset">
-        Cancel
-      </button>
-      <button [disabled]="!ideaForm.valid"
-              app-button
-              primary-button
-              type="submit">
-        {{updating ? 'Update' : 'Submit'}}
-      </button>
     </div>
-  </form>
-</app-card>
-
-<div *ngIf="toggleDeleteModal" class="background-delete"></div>
-<app-card *ngIf="toggleDeleteModal" class="confirm-delete">
-  <p>Are you sure you want to delete this idea?</p>
-  <div class="buttons">
-    <button (click)="closeDeleteModal()"
-            app-button
-            class="cancel-button"
-            secondary-button
-            type="reset">
-      Cancel
-    </button>
-    <button (click)="removeIdea()"
-            *ngIf="updating"
-            app-button
-            class="delete-button"
-            secondary-button
-            type="button">
-      Delete
-    </button>
-  </div>
-</app-card>
+  </app-card>
+</div>
