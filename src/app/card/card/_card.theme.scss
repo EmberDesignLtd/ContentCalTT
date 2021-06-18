@@ -2,4 +2,12 @@
   app-card {
     box-shadow: 0 0 5px function.theme-colour($theme, font, box-shadow);
   }
+
+  button[app-card] {
+    box-shadow: 0 0 5px function.theme-colour($theme, font, box-shadow);
+
+    &:hover {
+      box-shadow: 0 0 8px function.theme-colour($theme, font, box-shadow-hover);
+    }
+  }
 }

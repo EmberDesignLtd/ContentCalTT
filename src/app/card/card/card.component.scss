@@ -1,6 +1,6 @@
 @use '../../scss/base';
 
-:host {
+.card {
   border-radius: 4px;
   display: block;
   padding: map-get(base.$spacing, l);
@@ -9,5 +9,20 @@
 
   &[fit-content] {
     width: fit-content;
+  }
+}
+
+:host {
+  @extend .card;
+}
+
+:host[app-card] {
+  @extend .card;
+  text-align: left;
+  transition: transform 0.15s linear;
+  width: 100%;
+
+  &:hover {
+    transform: translateY(-1px);
   }
 }
