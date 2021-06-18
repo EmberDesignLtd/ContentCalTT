@@ -1,0 +1,8 @@
+@use '../../scss/base';
+
+:host[app-button] {
+  border-radius: 4px;
+  display: block;
+  padding: map-get(base.$spacing, s) map-get(base.$spacing, m);
+  width: 100%;
+}
