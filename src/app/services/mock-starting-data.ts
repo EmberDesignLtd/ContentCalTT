@@ -39,6 +39,6 @@ export const MOCK_DATA: Idea[] = [
       { label: 'In Progress', value: false },
       { label: 'Approved', value: false },
     ],
-    date: new Date(),
+    date: new Date(2021, 1, 1),
   },
 ];
