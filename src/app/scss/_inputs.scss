@@ -6,6 +6,15 @@ input {
   max-width: 400px;
   min-width: 300px;
   padding: map-get(spacing.$spacing, xs);
+
+  &[type='checkbox'] {
+    margin-bottom: unset;
+    min-width: unset;
+  }
+}
+
+textarea {
+  border-radius: 4px;
 }
 
 label {
