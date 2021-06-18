@@ -1,0 +1,5 @@
+@mixin tag-theme($theme) {
+  app-tag {
+    border: 1px solid function.theme-colour($theme, accent-one, card-background);
+  }
+}

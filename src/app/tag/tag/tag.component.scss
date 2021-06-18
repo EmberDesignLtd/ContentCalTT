@@ -1,0 +1,6 @@
+@use '../../scss/base';
+
+:host {
+  border-radius: 20px;
+  padding: map-get(base.$spacing, xs) map-get(base.$spacing, m);
+}
