@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { IdeaKey, IdeasService } from './../../services/ideas.service';
 
 @Component({
   selector: 'app-ideas',
   templateUrl: './ideas.component.html',
-  styleUrls: ['./ideas.component.scss']
+  styleUrls: ['./ideas.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IdeasComponent implements OnInit {
+export class IdeasComponent {
+  readonly ideas$ = this.ideasService.store$;
+  readonly EIdeaKey = IdeaKey;
 
-  constructor() { }
+  constructor(private readonly ideasService: IdeasService) {}
 
-  ngOnInit(): void {
+  sortBy(key: IdeaKey) {
+    this.ideasService.sortBy(key);
   }
-
 }

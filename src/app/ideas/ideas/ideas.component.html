@@ -1,1 +1,9 @@
-<p>ideas works!</p>
+<ng-container *ngIf="ideas$ | async as ideas">
+  <div *ngFor="let idea of ideas">
+    <p>{{idea.title}}</p>
+  </div>
+</ng-container>
+
+<button (click)="sortBy(EIdeaKey.DATE)">Sort 1</button>
+
+<button (click)="sortBy(EIdeaKey.TITLE)">Sort 2</button>
