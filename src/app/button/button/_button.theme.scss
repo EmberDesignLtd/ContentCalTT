@@ -2,10 +2,33 @@
   button {
     &[primary-button] {
       background: function.theme-colour($theme, accent-two, button);
+
+      &:hover {
+        background: function.theme-colour($theme, accent-two);
+      }
+
+      &:disabled {
+        &:hover {
+          background: function.theme-colour($theme, accent-two, button);
+        }
+      }
     }
 
     &[secondary-button] {
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        function.theme-colour($theme, accent-two) 50%
+      );
+      background-size: 245%;
       border: 1px solid function.theme-colour($theme, accent-two, button);
+      transition: all 0.25s linear;
+
+      &:hover {
+        background-position: 99%;
+        cursor: pointer;
+      }
     }
 
     &[tertiary-button] {

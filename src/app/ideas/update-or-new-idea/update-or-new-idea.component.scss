@@ -56,5 +56,7 @@ form {
 }
 
 button.delete-button {
+  background: linear-gradient(120deg, transparent 0%, transparent 50%, map-get(base.$red, 300) 50%);
+  background-size: 245%;
   border-color: map-get(base.$red, 300);
 }
