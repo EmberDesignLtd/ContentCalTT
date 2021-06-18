@@ -33,6 +33,8 @@
 }
 
 @import '../../app/header/header/header.theme';
+@import '../../app/card/card/card.theme';
+@import '../../app/button/button/button.theme';
 
 @mixin theme($theme) {
   background: function.theme-colour($theme, background);
@@ -42,10 +44,12 @@
     fill: function.theme-colour($theme, font, font);
   }
 
-  // TODO(Munro): Move to input component
   input {
-    color: function.theme-colour($theme, background, font);
+    border: 1px solid map-get(colour.$black, 100);
+    color: map-get(colour.$black, 400);
   }
 
+  @include button-theme($theme);
+  @include card-theme($theme);
   @include header-theme($theme);
 }
