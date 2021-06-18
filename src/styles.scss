@@ -22,3 +22,13 @@ $light-theme: base.set-theme(map-get(base.$white, 300), map-get(base.$white, 300
 .light-theme {
   @include base.theme($light-theme);
 }
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: currentColor;
+  border-radius: 8px;
+}
