@@ -26,6 +26,7 @@
   <button (click)="toggleNewIdeaModal(idea, i)"
           *ngFor="let idea of ideas; let i = index"
           app-card
+          appDeferLoading
           class="idea">
     <app-title medium-spacing medium-title>{{idea.title}}</app-title>
     <p class="description">{{idea.description}}</p>

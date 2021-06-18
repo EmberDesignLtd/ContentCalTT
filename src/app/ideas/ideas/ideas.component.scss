@@ -42,6 +42,8 @@ button.idea {
   display: flex;
   flex-direction: column;
   margin: map-get(base.$spacing, m) 0 map-get(base.$spacing, m) map-get(base.$spacing, m);
+  opacity: 0;
+  visibility: hidden;
   width: calc(50% - 18px);
 
   @include base.breakpoint(1200px) {
@@ -66,4 +68,10 @@ app-update-or-new-idea {
   left: 18px;
   position: absolute;
   top: 42px;
+}
+
+button.idea.animate-card-in {
+  opacity: 1;
+  transition: opacity 2s;
+  visibility: visible;
 }

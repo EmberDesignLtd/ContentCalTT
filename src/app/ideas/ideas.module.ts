@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeferLoadingDirective } from '../directives/defer-loading.directive';
 import { ButtonModule } from './../button/button.module';
 import { CardModule } from './../card/card.module';
 import { SvgIconModule } from './../svg-icon/svg-icon.module';
@@ -12,7 +13,12 @@ import { SortModalComponent } from './sort-modal/sort-modal.component';
 import { UpdateOrNewIdeaComponent } from './update-or-new-idea/update-or-new-idea.component';
 
 @NgModule({
-  declarations: [IdeasComponent, UpdateOrNewIdeaComponent, SortModalComponent],
+  declarations: [
+    IdeasComponent,
+    UpdateOrNewIdeaComponent,
+    SortModalComponent,
+    DeferLoadingDirective,
+  ],
   imports: [
     ButtonModule,
     CardModule,
