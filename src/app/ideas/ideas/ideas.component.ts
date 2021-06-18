@@ -28,7 +28,7 @@ export class IdeasComponent implements AfterViewInit, OnDestroy {
 
   constructor(private readonly ideasService: IdeasService) {}
 
-  sortBy(key: IdeaKey) {
+  sortBy(key: IdeaKey): void {
     this.ideasService.sortBy(key);
   }
 
@@ -36,7 +36,7 @@ export class IdeasComponent implements AfterViewInit, OnDestroy {
     this.ideasService.removeIdea(idea);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.searchBar.nativeElement) {
       this.searchTerm.valueChanges
         .pipe(
@@ -48,7 +48,7 @@ export class IdeasComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroys$.next();
   }
 }
