@@ -1,9 +1,17 @@
-<form (ngSubmit)="login()" [formGroup]="loginForm">
-  <label for="username">Username:</label>
-  <input formControlName="username" id="username" type="text" />
+<app-card fit-content>
+  <app-title large-title medium-spacing>Welcome</app-title>
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <label for="username">Username</label>
+    <input formControlName="username" id="username" type="text" />
 
-  <label for="password">Password:</label>
-  <input formControlName="password" id="password" type="password" />
+    <label for="password">Password</label>
+    <input formControlName="password" id="password" type="password" />
 
-  <button [disabled]="!loginForm.valid" type="submit">Login</button>
-</form>
+    <button [disabled]="!loginForm.valid"
+            app-button
+            primary-button
+            type="submit">
+      Login
+    </button>
+  </form>
+</app-card>
