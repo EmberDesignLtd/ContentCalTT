@@ -35,6 +35,9 @@
 @import '../../app/header/header/header.theme';
 @import '../../app/card/card/card.theme';
 @import '../../app/button/button/button.theme';
+@import '../../app/tag/tag/tag.theme';
+@import '../../app/ideas/update-or-new-idea/update-or-new-idea.theme';
+@import '../../app/ideas/sort-modal/sort-modal.theme';
 
 @mixin theme($theme) {
   background: function.theme-colour($theme, background);
@@ -49,7 +52,15 @@
     color: map-get(colour.$black, 400);
   }
 
+  textarea {
+    border: 1px solid map-get(colour.$black, 100);
+    color: map-get(colour.$black, 400);
+  }
+
   @include button-theme($theme);
   @include card-theme($theme);
   @include header-theme($theme);
+  @include new-idea-theme($theme);
+  @include sort-modal-theme($theme);
+  @include tag-theme($theme);
 }
