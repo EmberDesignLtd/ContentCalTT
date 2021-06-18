@@ -1,0 +1,29 @@
+@use '../../scss/base';
+
+.close {
+  height: calc(100vh - 67px);
+  left: 0;
+  position: fixed;
+  top: 67px;
+  width: 100vw;
+  z-index: 1;
+}
+
+.modal {
+  border-radius: 4px;
+  left: 0;
+  padding: map-get(base.$spacing, s);
+  position: absolute;
+  top: -4px;
+  width: fit-content;
+  z-index: 2;
+}
+
+button.sort-category {
+  margin-bottom: map-get(base.$spacing, s);
+  padding: map-get(base.$spacing, xs);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

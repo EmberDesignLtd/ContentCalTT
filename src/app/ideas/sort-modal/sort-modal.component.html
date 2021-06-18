@@ -1,0 +1,16 @@
+<div class="modal">
+  <button (click)="sortBy(EIdeaKey.DATE, ESortType.DATE)"
+          app-button
+          class="sort-category"
+          tertiary-button>
+    Date
+  </button>
+  <button (click)="sortBy(EIdeaKey.TITLE, ESortType.TITLE)"
+          app-button
+          class="sort-category"
+          tertiary-button>
+    Idea Title
+  </button>
+</div>
+
+<button (click)="closeModal(ESortType.NONE)" class="close"></button>

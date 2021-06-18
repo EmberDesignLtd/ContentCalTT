@@ -1,0 +1,12 @@
+@mixin sort-modal-theme($theme) {
+  app-sort-modal {
+    .modal {
+      background: function.theme-colour($theme, background);
+      border: 1px solid function.theme-colour($theme, font, border);
+    }
+
+    .close {
+      background: function.theme-colour($theme, background, background-fade);
+    }
+  }
+}
