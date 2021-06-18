@@ -42,5 +42,10 @@
     fill: function.theme-colour($theme, font, font);
   }
 
+  // TODO(Munro): Move to input component
+  input {
+    color: function.theme-colour($theme, background, font);
+  }
+
   @include header-theme($theme);
 }
