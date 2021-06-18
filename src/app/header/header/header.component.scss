@@ -2,8 +2,9 @@
 
 header {
   @include base.flex-center();
-
   padding: map-get(base.$spacing, m);
+  position: relative;
+  z-index: 5;
 }
 
 .content-cal {
