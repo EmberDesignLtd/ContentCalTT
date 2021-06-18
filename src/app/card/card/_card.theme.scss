@@ -1,0 +1,5 @@
+@mixin card-theme($theme) {
+  app-card {
+    box-shadow: 0 0 5px function.theme-colour($theme, font, box-shadow);
+  }
+}

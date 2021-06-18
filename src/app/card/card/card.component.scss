@@ -1,0 +1,13 @@
+@use '../../scss/base';
+
+:host {
+  border-radius: 4px;
+  display: block;
+  padding: map-get(base.$spacing, l);
+  position: relative;
+  width: 100%;
+
+  &[fit-content] {
+    width: fit-content;
+  }
+}
