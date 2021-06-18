@@ -63,7 +63,7 @@ export class UpdateOrNewIdeaComponent {
     this.close.emit();
   }
 
-  openDeleteModal() {
+  openDeleteModal(): void {
     this.toggleDeleteModal = true;
   }
 
