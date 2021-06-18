@@ -1,5 +1,7 @@
 @mixin button-theme($theme) {
   button {
+    color: function.theme-colour($theme, font, font-strong);
+
     &[primary-button] {
       background: function.theme-colour($theme, accent-two, button);
 

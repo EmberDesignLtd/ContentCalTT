@@ -1,7 +1,9 @@
 <header>
   <div class="content">
     <img alt class="content-cal" src="/assets/ccal.svg" />
-    <button (click)="toggleTheme()" class="theme-toggle">
+    <button (click)="toggleTheme()"
+            aria-label="Toggle website theme"
+            class="theme-toggle">
       <app-svg-icon [iconId]="EIcon.THEME_SWITCH"></app-svg-icon>
     </button>
   </div>
