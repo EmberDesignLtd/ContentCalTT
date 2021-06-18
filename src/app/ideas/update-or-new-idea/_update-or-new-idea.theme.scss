@@ -1,0 +1,7 @@
+@mixin new-idea-theme($theme) {
+  app-update-or-new-idea {
+    .background {
+      background: function.theme-colour($theme, background);
+    }
+  }
+}

@@ -1,18 +1,58 @@
-<form (ngSubmit)="submit()" [formGroup]="ideaForm">
-  <label for="title">Name:</label>
-  <input formControlName="title" id="title" type="text" />
+<div class="background"></div>
+<app-title class="header-title" large-spacing xl-title>Idea Board</app-title>
+<app-card>
+  <form (ngSubmit)="submit()" [formGroup]="ideaForm">
+    <label for="title">Name</label>
+    <input formControlName="title" id="title" type="text" />
 
-  <label for="description">Description:</label>
-  <input formControlName="description" id="description" type="password" />
+    <label for="description">Description</label>
+    <textarea class="description-input"
+              cols="30"
+              formControlName="description"
+              id="description"
+              rows="4">
+    </textarea>
 
-  <ng-container *ngFor="let control of tags">
-    <input [checked]="control.value.value"
-           [name]="control.value.label"
-           [value]="control.value.label"
-           type="checkbox" />
-    <label [for]="control.value.label">{{control.value.label}}</label>
-  </ng-container>
+    <div class="tags">
+      <div *ngFor="let control of tags; let i = index"
+           class="tag"
+           formArrayName="tags">
+        <input (click)="updateTagValue(i)"
+               [checked]="control.value.value"
+               [formGroupName]="i"
+               [name]="control.value.label"
+               [value]="control.value.label"
+               type="checkbox" />
+        <label (click)="updateTagValue(i)"
+               [for]="control.value.label"
+               class="tag-label">
+          <button type="button">{{control.value.label}}</button>
+        </label>
+      </div>
+    </div>
 
-  <button (click)="removeIdea(idea)">Remove</button>
-  <button [disabled]="!ideaForm.valid" type="submit">Submit/Update</button>
-</form>
+    <div class="buttons">
+      <button (click)="removeIdea()"
+              *ngIf="updating"
+              app-button
+              class="delete-button"
+              secondary-button
+              type="button">
+        Delete
+      </button>
+      <button (click)="closeModal()"
+              app-button
+              class="cancel-button"
+              secondary-button
+              type="reset">
+        Cancel
+      </button>
+      <button [disabled]="!ideaForm.valid"
+              app-button
+              primary-button
+              type="submit">
+        {{updating ? 'Update' : 'Submit'}}
+      </button>
+    </div>
+  </form>
+</app-card>

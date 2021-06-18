@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Idea, IdeasService } from './../../services/ideas.service';
 
@@ -15,10 +21,24 @@ enum TagLabel {
 })
 export class UpdateOrNewIdeaComponent {
   @Input() set idea(_idea: Idea) {
-    this.ideaForm.controls.title.setValue(_idea.title);
-    this.ideaForm.controls.description.setValue(_idea.description);
-    this.ideaForm.controls.tags.setValue(_idea.tags);
+    if (_idea.title) {
+      this.updating = true;
+      this.ideaForm.controls.title.setValue(_idea.title);
+      this.ideaForm.controls.description.setValue(_idea.description);
+      const tags = new FormArray([]);
+      _idea.tags.forEach((element) => {
+        tags.push(
+          new FormControl({ label: element.label, value: element.value })
+        );
+      });
+      this.ideaForm.controls.tags = tags;
+    } else {
+      this.updating = false;
+    }
   }
+  @Input() index = 0;
+  @Output() close = new EventEmitter<void>();
+  updating = false;
 
   ideaForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
@@ -33,13 +53,27 @@ export class UpdateOrNewIdeaComponent {
 
   constructor(private readonly ideasService: IdeasService) {}
 
-  removeIdea(idea: Idea): void {
-    this.ideasService.removeIdea(idea);
+  removeIdea(): void {
+    this.ideasService.removeIdea(this.index);
+    this.closeModal();
+  }
+
+  closeModal(): void {
+    this.close.emit();
   }
 
   submit(): void {
     this.ideaForm.controls.date.setValue(new Date());
-    this.ideasService.addNewEntry(this.ideaForm.value);
+    if (this.updating) {
+      this.ideasService.updateEntry(this.index, { ...this.ideaForm.value });
+    } else {
+      this.ideasService.addNewEntry({ ...this.ideaForm.value });
+    }
+    this.closeModal();
+  }
+
+  updateTagValue(index: number): void {
+    this.tags[index].value.value = !this.tags[index].value.value;
   }
 
   get tags(): FormControl[] {
