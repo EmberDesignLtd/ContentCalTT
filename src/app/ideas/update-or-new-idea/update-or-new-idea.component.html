@@ -5,7 +5,13 @@
   <label for="description">Description:</label>
   <input formControlName="description" id="description" type="password" />
 
-  <!-- TODO(Munro): Add tags -->
+  <ng-container *ngFor="let control of tags">
+    <input [checked]="control.value.value"
+           [name]="control.value.label"
+           [value]="control.value.label"
+           type="checkbox" />
+    <label [for]="control.value.label">{{control.value.label}}</label>
+  </ng-container>
 
   <button [disabled]="!ideaForm.valid" type="submit">Submit/Update</button>
 </form>
