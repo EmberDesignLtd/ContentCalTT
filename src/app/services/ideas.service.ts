@@ -55,12 +55,20 @@ export class IdeasService {
     let stateToFilter = [...this.unfilteredState];
     stateToFilter = stateToFilter.filter(
       (element) =>
+        element.title.toLowerCase().includes(_searchValue) ||
         element.description.toLowerCase().includes(_searchValue) ||
         element.tags.some((element) =>
           element.label.toLowerCase().includes(_searchValue)
         )
     );
     this.updateState(stateToFilter);
+  }
+
+  updateEntry(ideaIndex: number, idea: Idea): void {
+    const newState = [...this.store_$.value];
+    newState[ideaIndex] = idea;
+    this.updateUnfilteredState(newState);
+    this.updateState(newState);
   }
 
   addNewEntry(ideaEntry: Idea): void {
@@ -73,14 +81,9 @@ export class IdeasService {
     this.unfilteredState = [...state];
   }
 
-  removeIdea(idea: Idea): void {
+  removeIdea(ideaIndex: number): void {
     const newState = [...this.store_$.value];
-    newState.forEach((element, index) => {
-      if (element === idea) {
-        newState.splice(index, 1);
-        return;
-      }
-    });
+    newState.splice(ideaIndex, 1);
     this.updateUnfilteredState(newState);
     this.updateState(newState);
   }
