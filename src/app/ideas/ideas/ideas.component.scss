@@ -1,0 +1,69 @@
+@use '../../scss/base';
+
+:host {
+  display: block;
+  padding: map-get(base.$spacing, m);
+  position: relative;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: map-get(base.$spacing, l) 0;
+}
+
+.sort-section {
+  margin-right: map-get(base.$spacing, m);
+  position: relative;
+}
+
+button.new-idea {
+  width: fit-content;
+}
+
+.search-bar {
+  margin: map-get(base.$spacing, s) map-get(base.$spacing, m) map-get(base.$spacing, s) 0;
+
+  @include base.breakpoint(475px) {
+    margin: map-get(base.$spacing, s) map-get(base.$spacing, m) map-get(base.$spacing, s) auto;
+  }
+}
+
+.ideas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -(map-get(base.$spacing, m));
+  position: relative;
+  width: calc(100% + 18px);
+}
+
+button.idea {
+  display: flex;
+  flex-direction: column;
+  margin: map-get(base.$spacing, m) 0 map-get(base.$spacing, m) map-get(base.$spacing, m);
+  width: calc(50% - 18px);
+
+  @include base.breakpoint(1200px) {
+    width: calc(33.3% - 18px);
+  }
+}
+
+.description {
+  margin-bottom: auto;
+}
+
+.tags {
+  display: flex;
+  margin-top: map-get(base.$spacing, m);
+}
+
+.tag {
+  margin-right: map-get(base.$spacing, s);
+}
+
+app-update-or-new-idea {
+  left: 18px;
+  position: absolute;
+  top: 42px;
+}

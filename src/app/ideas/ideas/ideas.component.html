@@ -1,14 +1,44 @@
-<ng-container *ngIf="ideas$ | async as ideas">
-  <div *ngFor="let idea of ideas">
-    <p>{{idea.title}}</p>
-    <p>{{idea.description}}</p>
-    <div *ngFor="let tag of idea.tags">{{tag.label}}</div>
+<div class="header">
+  <app-title class="header-title" xl-title>Idea Board</app-title>
+  <div class="sort"></div>
+  <input [formControl]="searchTerm"
+         #searchBar
+         class="search-bar"
+         placeholder="Search"
+         type="text" />
+  <div class="sort-section">
+    <button (click)="toggleSortModal()" class="sort-button">
+      <app-svg-icon [iconId]="EIcon.SORT"></app-svg-icon>
+      Sort By: {{this.sortType}}
+    </button>
+    <app-sort-modal (close)="toggleSortModal($event)" *ngIf="toggleSortModal_">
+    </app-sort-modal>
   </div>
-</ng-container>
+  <button (click)="toggleNewIdeaModal()"
+          app-button
+          class="new-idea"
+          primary-button>
+    New Idea
+  </button>
+</div>
 
-<button (click)="sortBy(EIdeaKey.DATE)">Sort 1</button>
-<button (click)="sortBy(EIdeaKey.TITLE)">Sort 2</button>
+<div *ngIf="ideas$ | async as ideas" class="ideas">
+  <button (click)="toggleNewIdeaModal(idea, i)"
+          *ngFor="let idea of ideas; let i = index"
+          app-card
+          class="idea">
+    <app-title medium-spacing medium-title>{{idea.title}}</app-title>
+    <p class="description">{{idea.description}}</p>
+    <div *ngIf="idea.tags.length > 0" class="tags">
+      <ng-container *ngFor="let tag of idea.tags">
+        <app-tag *ngIf="tag.value" class="tag">{{tag.label}}</app-tag>
+      </ng-container>
+    </div>
+  </button>
+</div>
 
-<input [formControl]="searchTerm" #searchBar type="text" />
-
-<app-update-or-new-idea></app-update-or-new-idea>
+<app-update-or-new-idea (close)="toggleNewIdeaModal()"
+                        [idea]="activeIdea"
+                        [index]="activeIndex"
+                        *ngIf="toggleNewIdeaModal_">
+</app-update-or-new-idea>
