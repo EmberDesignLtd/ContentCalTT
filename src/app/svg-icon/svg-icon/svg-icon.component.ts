@@ -13,6 +13,7 @@ export enum IconSize {
 
 export enum Icon {
   THEME_SWITCH = 'theme-switch',
+  SORT = 'sort',
 }
 
 @Component({
