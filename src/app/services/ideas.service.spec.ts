@@ -80,7 +80,7 @@ fdescribe('IdeasService', () => {
       };
       service.addNewEntry(newIdea);
       service.store$.subscribe((data) => {
-        expect(data[16]).toEqual(newIdea);
+        expect(data[0]).toEqual(newIdea);
       });
     });
   });

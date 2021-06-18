@@ -74,7 +74,7 @@ export class IdeasService {
   }
 
   addNewEntry(ideaEntry: Idea): void {
-    const newState = [...this.store_$.value, ideaEntry];
+    const newState = [ideaEntry, ...this.store_$.value];
     this.updateUnfilteredState(newState);
     this.updateState(newState);
   }
