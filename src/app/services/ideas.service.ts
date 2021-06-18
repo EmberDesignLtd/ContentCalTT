@@ -79,7 +79,7 @@ export class IdeasService {
     this.updateState(newState);
   }
 
-  updateUnfilteredState(state: Idea[]) {
+  updateUnfilteredState(state: Idea[]): void {
     this.unfilteredState = [...state];
   }
 
