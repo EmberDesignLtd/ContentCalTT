@@ -5,6 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  // TODO(Munro): Implement a more realistic login behaviour with a expiration date & local storage
+  // Given more time I'd implement a more robust login service with expiration tokens/OAuth as a third party example
   loggedIn = new BehaviorSubject(true);
 }
