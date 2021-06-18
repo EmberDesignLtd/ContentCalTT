@@ -60,11 +60,27 @@ export class IdeasService {
 
   addNewEntry(ideaEntry: Idea): void {
     const newState = [...this.store_$.value, ideaEntry];
-    this.unfilteredState = [...newState];
+    this.updateUnfilteredState(newState);
     this.updateState(newState);
   }
 
-  private updateState(state: any): void {
+  updateUnfilteredState(state: Idea[]) {
+    this.unfilteredState = [...state];
+  }
+
+  removeIdea(idea: Idea): void {
+    const newState = [...this.store_$.value];
+    newState.forEach((element, index) => {
+      if (element === idea) {
+        newState.splice(index, 1);
+        return;
+      }
+    });
+    this.updateUnfilteredState(newState);
+    this.updateState(newState);
+  }
+
+  private updateState(state: Idea[]): void {
     this.store_$.next([...state]);
   }
 }

@@ -9,7 +9,7 @@ import {
 import { FormControl } from '@angular/forms';
 import { ReplaySubject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
-import { IdeaKey, IdeasService } from './../../services/ideas.service';
+import { Idea, IdeaKey, IdeasService } from './../../services/ideas.service';
 
 const SEARCH_BAR = 'searchBar';
 
@@ -30,6 +30,10 @@ export class IdeasComponent implements AfterViewInit, OnDestroy {
 
   sortBy(key: IdeaKey) {
     this.ideasService.sortBy(key);
+  }
+
+  removeIdea(idea: Idea): void {
+    this.ideasService.removeIdea(idea);
   }
 
   ngAfterViewInit() {

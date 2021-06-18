@@ -1,10 +1,10 @@
 <ng-container *ngIf="ideas$ | async as ideas">
   <div *ngFor="let idea of ideas">
     <p>{{idea.title}}</p>
+    <button (click)="removeIdea(idea)">Remove</button>
   </div>
 </ng-container>
 
-<button (click)="addNewEntry()"></button>
 <button (click)="sortBy(EIdeaKey.DATE)">Sort 1</button>
 <button (click)="sortBy(EIdeaKey.TITLE)">Sort 2</button>
 
