@@ -1,0 +1,23 @@
+@use '../../scss/base';
+
+:host {
+  &[small-title] > h1 {
+    font-size: map-get(base.$font-size, s);
+  }
+
+  &[medium-title] > h1 {
+    font-size: map-get(base.$font-size, m);
+  }
+
+  &[large-title] > h1 {
+    font-size: map-get(base.$font-size, l);
+  }
+
+  &[small-spacing] > h1 {
+    margin-bottom: map-get(base.$spacing, s);
+  }
+
+  &[medium-spacing] > h1 {
+    margin-bottom: map-get(base.$spacing, m);
+  }
+}
