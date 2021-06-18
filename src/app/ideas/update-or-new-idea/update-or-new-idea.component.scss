@@ -2,7 +2,7 @@
 
 :host {
   position: relative;
-  width: 100%;
+  width: 98%;
 }
 
 .background {
@@ -12,6 +12,15 @@
   top: 67px;
   width: 100vw;
   z-index: 0;
+}
+
+.background-delete {
+  height: calc(100vh - 67px);
+  left: 0;
+  position: fixed;
+  top: 67px;
+  width: 100vw;
+  z-index: 2;
 }
 
 .header-title {
@@ -59,4 +68,9 @@ button.delete-button {
   background: linear-gradient(120deg, transparent 0%, transparent 50%, map-get(base.$red, 300) 50%);
   background-size: 245%;
   border-color: map-get(base.$red, 300);
+}
+
+.confirm-delete {
+  @include base.pos-abs();
+  z-index: 3;
 }

@@ -3,5 +3,13 @@
     .background {
       background: function.theme-colour($theme, background);
     }
+
+    .background-delete {
+      background: function.theme-colour($theme, background, background-fade);
+    }
+
+    .confirm-delete {
+      background: function.theme-colour($theme, background);
+    }
   }
 }

@@ -32,7 +32,7 @@
     </div>
 
     <div class="buttons">
-      <button (click)="removeIdea()"
+      <button (click)="openDeleteModal()"
               *ngIf="updating"
               app-button
               class="delete-button"
@@ -55,4 +55,26 @@
       </button>
     </div>
   </form>
+</app-card>
+
+<div *ngIf="toggleDeleteModal" class="background-delete"></div>
+<app-card *ngIf="toggleDeleteModal" class="confirm-delete">
+  <p>Are you sure you want to delete this idea?</p>
+  <div class="buttons">
+    <button (click)="closeDeleteModal()"
+            app-button
+            class="cancel-button"
+            secondary-button
+            type="reset">
+      Cancel
+    </button>
+    <button (click)="removeIdea()"
+            *ngIf="updating"
+            app-button
+            class="delete-button"
+            secondary-button
+            type="button">
+      Delete
+    </button>
+  </div>
 </app-card>

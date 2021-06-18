@@ -39,6 +39,7 @@ export class UpdateOrNewIdeaComponent {
   @Input() index = 0;
   @Output() close = new EventEmitter<void>();
   updating = false;
+  toggleDeleteModal = false;
 
   ideaForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
@@ -60,6 +61,14 @@ export class UpdateOrNewIdeaComponent {
 
   closeModal(): void {
     this.close.emit();
+  }
+
+  openDeleteModal() {
+    this.toggleDeleteModal = true;
+  }
+
+  closeDeleteModal(): void {
+    this.toggleDeleteModal = false;
   }
 
   submit(): void {
