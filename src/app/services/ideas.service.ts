@@ -7,8 +7,13 @@ export interface Idea {
   title: string;
   description: string;
   date: Date;
-  tags: string[];
+  tags: Tag[];
   [key: string]: any;
+}
+
+export interface Tag {
+  value: boolean;
+  label: string;
 }
 
 export enum IdeaKey {
@@ -52,7 +57,7 @@ export class IdeasService {
       (element) =>
         element.description.toLowerCase().includes(_searchValue) ||
         element.tags.some((element) =>
-          element.toLowerCase().includes(_searchValue)
+          element.label.toLowerCase().includes(_searchValue)
         )
     );
     this.updateState(stateToFilter);

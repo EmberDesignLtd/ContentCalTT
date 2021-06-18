@@ -14,19 +14,28 @@ enum TagLabel {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpdateOrNewIdeaComponent {
-  @Input() idea?: Idea;
+  @Input() set idea(_idea: Idea) {
+    this.ideaForm.controls.title.setValue(_idea.title);
+    this.ideaForm.controls.description.setValue(_idea.description);
+    this.ideaForm.controls.tags.setValue(_idea.tags);
+  }
+
   ideaForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
     date: new FormControl(),
     tags: new FormArray([
       new FormControl({ label: TagLabel.AWESOME, value: false }),
-      new FormControl({ label: TagLabel.PROGRESS, value: true }),
+      new FormControl({ label: TagLabel.PROGRESS, value: false }),
       new FormControl({ label: TagLabel.APPROVED, value: false }),
     ]),
   });
 
   constructor(private readonly ideasService: IdeasService) {}
+
+  removeIdea(idea: Idea): void {
+    this.ideasService.removeIdea(idea);
+  }
 
   submit(): void {
     this.ideaForm.controls.date.setValue(new Date());

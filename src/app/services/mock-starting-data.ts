@@ -4,19 +4,19 @@ export const MOCK_DATA: Idea[] = [
   {
     title: 'Idea one',
     description: 'lorem ipsum',
-    tags: ['Awesome'],
+    tags: [{ label: 'Awesome', value: true }],
     date: new Date(),
   },
   {
     title: 'Idea two',
     description: 'lorem ipsum',
-    tags: ['In progress'],
+    tags: [{ label: 'In progess', value: true }],
     date: new Date(),
   },
   {
     title: 'Idea three',
     description: 'lorem ipsum',
-    tags: ['Approved'],
+    tags: [{ label: 'Approved', value: true }],
     date: new Date(),
   },
   {

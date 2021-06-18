@@ -1,7 +1,8 @@
 <ng-container *ngIf="ideas$ | async as ideas">
   <div *ngFor="let idea of ideas">
     <p>{{idea.title}}</p>
-    <button (click)="removeIdea(idea)">Remove</button>
+    <p>{{idea.description}}</p>
+    <div *ngFor="let tag of idea.tags">{{tag.label}}</div>
   </div>
 </ng-container>
 

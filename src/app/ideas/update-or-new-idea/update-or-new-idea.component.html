@@ -13,5 +13,6 @@
     <label [for]="control.value.label">{{control.value.label}}</label>
   </ng-container>
 
+  <button (click)="removeIdea(idea)">Remove</button>
   <button [disabled]="!ideaForm.valid" type="submit">Submit/Update</button>
 </form>
