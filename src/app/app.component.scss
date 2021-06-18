@@ -1,0 +1,6 @@
+@use '../app/scss/base';
+
+.router-view {
+  margin: 0 auto;
+  max-width: base.$max-width;
+}
