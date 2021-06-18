@@ -8,7 +8,7 @@ export interface Idea {
   description: string;
   date: Date;
   tags: Tag[];
-  [key: string]: any;
+  [key: string]: any | any[];
 }
 
 export interface Tag {
@@ -38,15 +38,13 @@ export class IdeasService {
   sortBy(key: IdeaKey): void {
     this.sortDirection[key] = !this.sortDirection[key];
     const storeState = [...this.store_$.value];
-    if (this.sortDirection[key]) {
-      storeState.sort((a, b) =>
-        a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0
-      );
-    } else {
-      storeState.sort((a, b) =>
-        a[key] < b[key] ? 1 : b[key] < a[key] ? -1 : 0
-      );
-    }
+    storeState.sort((a, b) => {
+      return this.sortDirection[key] ? 
+      a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0 
+      : 
+      b[key] > a[key] ? 1 : a[key] > b[key] ? -1 : 0;
+    });
+
     this.updateState(storeState);
   }
 
