@@ -1,0 +1,12 @@
+runtime: python27
+threadsafe: true
+api_version: 1
+default_expiration: "14d"
+
+handlers:
+- url: /(.*\.(gif|png|jpeg|jpg|css|js|svg|txt))$
+  static_files: dist/Koffeecup/\1
+  upload: dist/Koffeecup/(.*)
+- url: /(.*)
+  static_files: dist/Koffeecup/index.html
+  upload: dist/Koffeecup/index.html
