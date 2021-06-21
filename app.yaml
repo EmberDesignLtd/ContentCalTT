@@ -5,8 +5,8 @@ default_expiration: "14d"
 
 handlers:
 - url: /(.*\.(gif|png|jpeg|jpg|css|js|svg|txt))$
-  static_files: dist/Koffeecup/\1
-  upload: dist/Koffeecup/(.*)
+  static_files: dist/ContentCalTT/\1
+  upload: dist/ContentCalTT/(.*)
 - url: /(.*)
-  static_files: dist/Koffeecup/index.html
-  upload: dist/Koffeecup/index.html
+  static_files: dist/ContentCalTT/index.html
+  upload: dist/ContentCalTT/index.html
