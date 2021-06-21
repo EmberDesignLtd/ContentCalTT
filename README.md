@@ -2,6 +2,8 @@
 
 Run `npm install` and then run `ng serve` to open the project on `localhost:4200`
 
+Alternatively you can view the live site at - `https://contentcal-317515.ew.r.appspot.com`
+
 
 ## General notes
 
